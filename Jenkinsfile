@@ -8,7 +8,7 @@ pipeline {
     stages {
       stage('run kubernetes deployment') {
         steps {
-          'sh kubectl create -f deploy01.yml'
+          'kubectl create -f deploy01.yml'
         }
       }
       stage('Run Ansible Playbook on Kubernetes Pods') {
