@@ -3,7 +3,7 @@ pipeline {
     environment {
         ANSIBLE_HOST_KEY_CHECKING = 'False'
         KUBE_CONFIG = credentials('aws-kubeconfig') 
-        ANSIBLE_INVENTORY = '/home/jenkins/workspace/kubeansible/k8s_inventory.ini' 
+        ANSIBLE_INVENTORY = '/home/jenkins/workspace/kubedeploy/k8s_inventory.ini' 
           }
     stages {
       stage('run kubernetes deployment') {
