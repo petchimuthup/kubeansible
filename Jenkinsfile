@@ -24,6 +24,17 @@ pipeline {
     }
       }
     }
+    stage('deploy image in kubernetes') {
+      environment {
+        KUBE_CONFIG = credentials('kubeconfig')
+      }
+      agent {
+        label 'kube'
+      }
+      steps {
+        sh 'kubectl create -f deploy01.yml'
+      }
+        
  }
 }
   
