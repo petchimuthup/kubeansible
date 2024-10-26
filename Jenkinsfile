@@ -18,8 +18,8 @@ pipeline {
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhublogin', toolName: 'docker') {
-            sh 'docker build -t 826316/anslinux .'
-            sh 'docker push 826316/anslinux'
+            sh 'docker build -t 826316/ansubuntu .'
+            sh 'docker push 826316/ansubuntu'
       }
     }
       }
