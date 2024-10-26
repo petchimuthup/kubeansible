@@ -15,4 +15,4 @@ spec:
   spec:
    containers:
     - name: ubuntu
-      image: 826316/ansubuntu:latest
+      image: 826316/ansubuntu:new
