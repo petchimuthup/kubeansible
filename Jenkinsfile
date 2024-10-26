@@ -34,11 +34,11 @@ pipeline {
       }
     }
     
-    stage('kubernets deploy') {
+    stage('kubernetes deploy') {
       agent { 
         label 'kube'}
       steps {
-        sh 'kubectl create -f deploy.yml'
+        sh 'kubectl create -f deploy01.yml'
       }
     }
     }
