@@ -15,7 +15,6 @@ pipeline {
       agent {
         label 'dockans'
           }
-      
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhublogin', toolName: 'docker') {
@@ -25,15 +24,7 @@ pipeline {
     }
       }
     }
-    
-    stage('kubernetes deploy') {
-      agent { 
-        label 'kube'}
-      steps {
-        sh 'kubectl create -f deploy01.yml'
-      }
-    }
-    }
+ }
 }
   
         
