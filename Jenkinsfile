@@ -34,6 +34,7 @@ pipeline {
       }
     }
       }
+    }
     
     stage('kubernets deploy') {
       agent { 
@@ -42,6 +43,8 @@ pipeline {
         sh 'kubectl create -f deploy.yml'
       }
     }
+    }
+}
   
         
            
