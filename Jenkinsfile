@@ -4,7 +4,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhublogin')
     ANSIBLE_HOST_KEY_CHECKING = 'False'
     KUBE_CONFIG = credentials('kubeconfig')
-    ANSIBLE_INVENTORY = '/home/jenkins/workspace/anskubedock/k8inventory.ini'
+    ANSIBLE_INVENTORY = '/home/jenkins/workspace/gitdockanskube/k8inventory.ini'
   }
   stages {
     stage('connect git repo') {
