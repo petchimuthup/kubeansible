@@ -32,7 +32,7 @@ pipeline {
         label 'kube'
       }
       steps {
-        sh 'kubectl create -f deploy01.yml'
+        sh 'kubectl delete -f deploy01.yml && kubectl create -f deploy01.yml'
       }
         
  }
