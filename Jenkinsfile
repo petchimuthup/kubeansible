@@ -24,6 +24,7 @@ pipeline {
           }
       environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhublogin')
+      }
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhublogin', toolName: 'docker') {
