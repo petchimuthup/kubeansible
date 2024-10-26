@@ -10,15 +10,8 @@ pipeline {
         git([url: 'https://github.com/petchimuthup/kubeansible.git', branch: 'main'])
              }
     }
-    stage('build docker image') {
-      agent {
-        label'dockans'
-      }
-      steps {
-        sh 'docker build -t 826316/ansubuntu:new .'
-      }
-    }
-    stage('dockerhub login') {
+    
+    stage('build docker image and push') {
       agent {
         label 'dockans'
           }
@@ -28,7 +21,8 @@ pipeline {
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhublogin', toolName: 'docker') {
-        sh 'docker push 826316/ansubuntu:new'
+            sh 'docker build -t 826316/ansubuntu:new .'
+            sh 'docker push 826316/ansubuntu:new'
       }
     }
       }
