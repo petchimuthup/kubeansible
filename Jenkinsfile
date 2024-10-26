@@ -1,11 +1,6 @@
 pipeline {
   agent none
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhublogin')
-    ANSIBLE_HOST_KEY_CHECKING = 'False'
-    KUBE_CONFIG = credentials('kubeconfig')
-    ANSIBLE_INVENTORY = '/home/jenkins/workspace/gitdockanskube/k8inventory.ini'
-  }
+  
   stages {
     stage('connect git repo') {
     agent {
@@ -26,7 +21,9 @@ pipeline {
     stage('dockerhub login') {
       agent {
         label 'dockans'
-      }
+          }
+      environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhublogin')
       steps {
         script {
           withDockerRegistry(credentialsId: 'dockerhublogin', toolName: 'docker') {
